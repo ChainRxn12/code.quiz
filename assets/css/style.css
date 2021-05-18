@@ -1,0 +1,42 @@
+body {
+    background-color: #404040;
+  }
+  main {
+    display: flex;
+  }
+  header {
+    text-align: center;
+    font-size: 40px;
+    line-height: 80px;
+    background-color: blanchedalmond;
+    height: 80px;
+    border-bottom: cadetblue solid 3px;
+  }
+  article {
+    margin: 2%;
+    border: black solid 3px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  article h2 {
+    font-size: 20px;
+    margin-bottom: 5%;
+  }
+  .gameCard {
+    flex: 1 0 56%;
+    height: 500px;
+  }
+  .scoretimeCard {
+    flex: 1 0 33%;
+    height: 200px;
+  }
+  #log {
+    margin-top: 50px;
+    font-size: 50px;
+  }
+  section {
+    display: flex;
+    align-items: center;    
+    flex-direction: column;
+  }
