@@ -1,5 +1,6 @@
 body {
-    background-color: #404040;
+    background-image: linear-gradient(#000000, #414192);
+    color: #3032c7;
   }
   main {
     display: flex;
@@ -8,13 +9,13 @@ body {
     text-align: center;
     font-size: 40px;
     line-height: 80px;
-    background-color: blanchedalmond;
+    background-color: #000000;
     height: 80px;
-    border-bottom: cadetblue solid 3px;
+    border-bottom: #ffc8ff80 solid 3px;
   }
   article {
     margin: 2%;
-    border: black solid 3px;
+    border: #ffc8ff80 solid 3px;
     height: 500px;
     display: flex;
     justify-content: center;
