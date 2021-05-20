@@ -1,5 +1,5 @@
 //assign variables
-var startGame = document.querySelector("#btn");
+var startGame = document.querySelector(".btn");
 var timerElement = document.querySelector(".timer");
 var secondsLeft = 120;
 var questions = ["1?", "2?", "3?", "4?"];
@@ -26,7 +26,7 @@ function getRandomQuestion(){
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
-        timerElement.textContent = secondsLeft + " time remaining";
+        timerElement.textContent = "Timer: " + secondsLeft;
         if(secondsLeft=== 0) {
             clearInterval(timerInterval);
             sendMessage();
