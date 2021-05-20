@@ -9,7 +9,7 @@ body {
     background-image: linear-gradient(#000000, #06067e);
     color: #d1b697;
     border: #ffc8ff80 solid 3px;
-    margin: 5%;
+    margin: 1%;
     font-family: "Roboto", sans-serif;
   }
   main {
@@ -24,6 +24,10 @@ body {
     padding-left: 2%;
     border-bottom: #ffc8ff80 solid 3px;
   }
+
+  h1{
+    font-size: 30px;
+  }
   
   main {
     align-items: center;
@@ -33,8 +37,7 @@ body {
   .btn {
     width: 200px;
     height: 50px;
-    border: none;
-    outline: none;
+    border: 2px solid #ffc8ff80;
     color: #ffc8ff80;
     background: #111;
     cursor: pointer;
@@ -94,9 +97,10 @@ body {
     background-color: #fff;
     border: 3px solid #58055880;
     border-radius: 8px;
-    margin: 40px 20px;
+    margin-left: 50%;
+    margin-right: 2%;
+    margin-top: 2%;
     padding: 20px;
     width: 40vw;
-    float: left;
   }
  
