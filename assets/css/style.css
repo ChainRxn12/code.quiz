@@ -1,8 +1,16 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+
 body {
     background-image: linear-gradient(#000000, #06067e);
     color: #d1b697;
     border: #ffc8ff80 solid 3px;
     margin: 5%;
+    font-family: "Roboto", sans-serif;
   }
   main {
     display: flex;
@@ -20,8 +28,6 @@ body {
   main {
     align-items: center;
     margin-left: 40%;
-    max-width: 90vw;
-    width: 50ch;
   }
 /*button animations credit: https://dev.to/webdeasy/top-20-css-buttons-animations-f41*/
   .btn {
@@ -84,4 +90,13 @@ body {
     font-size: 15px;
   }
 
+  .card {
+    background-color: #fff;
+    border: 3px solid #58055880;
+    border-radius: 8px;
+    margin: 40px 20px;
+    padding: 20px;
+    width: 40vw;
+    float: left;
+  }
  
