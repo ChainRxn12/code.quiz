@@ -103,3 +103,16 @@ body {
     padding: 20px;
     width: 40vw;
   }
+.questionArea {
+  border: 3px solid #ffc8ff80;
+  border-radius: 8px;
+  margin-left:2%;
+  margin-right: 2%;
+  margin-top: 2%;
+  padding: 2%;
+}
+
+aside {
+  font-size: 20px;
+  padding-bottom: 1px;
+}

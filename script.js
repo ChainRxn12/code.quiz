@@ -1,41 +1,69 @@
 //assign variables
-var startGame = document.querySelector(".btn");
+var startButton = document.querySelector(".startBtn");
 var timerElement = document.querySelector(".timer");
+var answerElement= document.querySelector("#answers");
+var questionEl = document.querySelector('#question');
+
 var secondsLeft = 120;
-var questions = ["1?", "2?", "3?", "4?"];
-var answers = 
+var nameHigh;
+var scoreHigh;
+var index = 0;
 
-/*Question 1: What does the <p> indicate?
-Answer: Paragraph Tag
-Wrong Answers: Parent Tag, Push Value, The Color Purple*/
 
-/*Question 2: What does CSS stand for?
-Answer: Cascading Style Sheet
-Wrong Answers: Cosmic Star Ship, Colorado Six Shooters, Cascade Starting Sheet*/
-
-/*Question 3: Which of the following is NOT a programming language?
-Answer: LatteScript
-Wrong Answers: JavaScript, Java, Python
-
-/*Question 4: What best describes the term "bug" while coding?
-Answer: A mistake
-Wrong Answers: A Command, Something Icky, A Loop*/
+var questions = [
+    {
+    question: "WHAT DOES <P></P> INDICATE?",
+    answers: ['Parent Tag','Push Value', 'The Color Purple', 'Paragraph Tag'],
+    correctAnswer: 'Paragraph Tag'
+},{
+    question: "WHAT DOES 'CSS' STAND FOR?",
+    answers: ['Cascading Style Sheet', 'Cosmic Start Ship', 'Colorado Six Shooters', 'Cascade Starting Sheet'],
+    correctAnswer: 'Cascading Style Sheet'
+},{
+    question: "WHICH OF THE FOLLOW IS NOT A PROGRAMMING LANGUAGE?",
+    answers: ['Python', 'Java', 'LatteScript', 'JavaScript'],
+    correctAnswer: 'LatteScript'
+},{
+    question: "WHAT BEST DESCRIBES THE TERM 'BUG' WHILE CODING?",
+    answers: ['A Mistake or Error in the Code', 'A Command', 'Something Icky', 'A Forever Loop'],
+    correctAnswer: 'A Mistake or Error in the Code'
+}];
 
 
 //listeners
-startGame.addEventListener("click", function() {
+startButton.addEventListener("click", function() {
     secondsLeft--;
     getRandomQuestion();
     setTime();
-    logKey(); 
+    startGame();
 });
 
 //random question function not working*****
 function getRandomQuestion(){
-    i = Math.floor(Math.random() * questions.length);
+   /* i = Math.floor(Math.random() * questions.length);
     ranQuestion = questions[i];
     console.log(ranQuestion);
-    const log = document.getElementById('log');
+    const log = document.getElementById('log');*/
+
+        questionEl.textContent = questions[index].question
+
+        for( var i = 0; i < questions[index].answers.length; i++) {
+            //Each time the loop is run, the below codes are being executed
+
+            //Create a list & a button element 
+            var li = document.createElement('li');
+            var answerBtn = document.createElement('button')
+
+            //display the answer content onto the button
+            answerBtn.textContent = questions[index].answers[i];
+            //add class to the answer button
+            answerBtn.classList.add('btn')
+            //append the answer button with the contect and class which we added above into the list element
+            li.appendChild(answerBtn);
+            //append the list element to the answer ul created on the html
+            answerElement.appendChild(li)   
+        }
+    
 }    
 
 
@@ -51,11 +79,25 @@ function setTime() {
     }, 1000);
 }
 
+//startGame function is called when the start button is clicked
+function startGame(){
+    isWin = false;
+    secondsLeft = 120;
+    startButton.disabled = true; //prevents start button from being pressed while playing
+    
+}
+
 //attach event listener to startGame button to function on click
-startGame.addEventListener("click", startGame);
+startButton.addEventListener("click", startGame);
+
+//what is initialized upon page load
+/*function init() {
+    getNameHigh();
+    getScoreHigh();
+}
 
 //calls init() so that game initializes upon opening
-init();
+init();*/
 
 //reset button plus reset function
 var resetButton = document.querySelector(".resetBtn");
