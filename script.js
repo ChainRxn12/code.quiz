@@ -3,7 +3,7 @@ var startButton = document.querySelector(".startBtn");
 var timerElement = document.querySelector(".timer");
 var answerElement= document.querySelector("#answers");
 var questionEl = document.querySelector('#question');
-
+//var points = document.querySelector("#saved-score");
 var secondsLeft = 120;
 var nameHigh;
 var scoreHigh;
@@ -30,42 +30,41 @@ var questions = [
 }];
 
 
-//listeners
+//listener when clicking "play"
 startButton.addEventListener("click", function() {
+    var playerName = prompt("Please Enter Player Name", " ");
+    if (playerName != null) {
+        document.getElementById("saved-name").innerhtml = " ";//save localStorage
+    }
     secondsLeft--;
     getRandomQuestion();
     setTime();
     startGame();
 });
 
-//random question function not working*****
 function getRandomQuestion(){
-   /* i = Math.floor(Math.random() * questions.length);
-    ranQuestion = questions[i];
-    console.log(ranQuestion);
-    const log = document.getElementById('log');*/
+    questionEl.textContent = questions[index].question
 
-        questionEl.textContent = questions[index].question
+    for( var i = 0; i < questions[index].answers.length; i++) {
+        //Each time the loop is run, the below codes are being executed
 
-        for( var i = 0; i < questions[index].answers.length; i++) {
-            //Each time the loop is run, the below codes are being executed
+        //Create a list & a button element 
+        var li = document.createElement('li');
+        var answerBtn = document.createElement('button')
 
-            //Create a list & a button element 
-            var li = document.createElement('li');
-            var answerBtn = document.createElement('button')
-
-            //display the answer content onto the button
-            answerBtn.textContent = questions[index].answers[i];
-            //add class to the answer button
-            answerBtn.classList.add('btn')
-            //append the answer button with the contect and class which we added above into the list element
+        //display the answer content onto the button
+        answerBtn.textContent = questions[index].answers[i];
+        //add class to the answer button
+        answerBtn.classList.add('btn')
+        //append the answer button with the contect and class which was added above into the list element
             li.appendChild(answerBtn);
             //append the list element to the answer ul created on the html
             answerElement.appendChild(li)   
-        }
-    
+        } //while loop waiting for answer to move to next question
 }    
 
+
+    
 
 //timer function is working
 function setTime() {
