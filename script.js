@@ -14,7 +14,7 @@ Answer: Cascading Style Sheet
 Wrong Answers: Cosmic Star Ship, Colorado Six Shooters, Cascade Starting Sheet*/
 
 /*Question 3: Which of the following is NOT a programming language?
-Answer: LatteScipt
+Answer: LatteScript
 Wrong Answers: JavaScript, Java, Python
 
 /*Question 4: What best describes the term "bug" while coding?
@@ -50,3 +50,23 @@ function setTime() {
         }
     }, 1000);
 }
+
+//attach event listener to startGame button to function on click
+startGame.addEventListener("click", startGame);
+
+//calls init() so that game initializes upon opening
+init();
+
+//reset button plus reset function
+var resetButton = document.querySelector(".resetBtn");
+
+function resetGame(){
+    nameHigh = '';
+    scoreHigh= 0;
+    //renders win and loss counts and sets them into client storage
+    setNameHigh()
+    setScoreHigh()
+}
+
+//listener for reset button
+resetButton.addEventListener("click", resetGame);
