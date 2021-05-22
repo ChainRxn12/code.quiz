@@ -63,9 +63,10 @@ function getQuestion(){
         //display the answer content onto the button
         answerBtn.textContent = questions[index].answers[i];
         //add class to the answer button
-        answerBtn.classList.add('btn')
+        answerBtn.classList.add('btn');
+        answerBtn.setAttribute('value', questions[index].answers[i]);
         //append the answer button with the contect and class which was added above into the list element
-        answerbtn.addEventListener("click", function() {
+        answerBtn.addEventListener("click", function() {
             checkAnswer();
             console.log(answerBtn);
          });  
@@ -76,24 +77,25 @@ function getQuestion(){
          
             
         }      
-}; 
-
-/*
-
-})
-
-function getSecondQuestion(){
-    questionEl.textContent = questions[1].question
-    for( var i = 1; i < questions[1].answers.length; i++) {
-        var li = document.createElement('li');
-        var answerBtn2 = document.createElement('button');
-        answerBtn2.textContent = questions[1].answers[i];
-        answerBtn2.classList.add('btn')
-            li.appendChild(answerBtn2);
-            answerElement.appendChild(li);
-
+}; //check if user clicks wrong answer
+function checkAnswer(){
+    if (this.value !== questions[index].correctAnswer){
+        secondsLeft = secondsLeft - 30; //lose 30 seconds
+        console.log("incorrect answer minus 30 seconds");
+        points = points - 10; //lose 10 points
+        console.log("incorrect answer minus 10 points");
+    } else {
+        // if choose correct answer 
+        secondsLeft = secondsLeft + 30; //gain 30 seconds 
+        console.log("correct answer plus 30 seconds");
+        points = points + 10; // gain 10 points
+        console.log("correct answer plus 10 points");
     }
-}*/
+//move to next question index++;
+//check if run out of quesitons
+    
+    console.log("checkAnswer")
+}
 
 //timer function is working
 function setTime() {
