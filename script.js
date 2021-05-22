@@ -55,31 +55,25 @@ function getQuestion(){
 
     for( var i = 0; i < questions[index].answers.length; i++) {
         //Each time the loop is run, the below codes are being executed
-
         //Create a list & a button element 
         var li = document.createElement('li');
         var answerBtn = document.createElement('button');
-
-        //display the answer content onto the button
         answerBtn.textContent = questions[index].answers[i];
-        //add class to the answer button
         answerBtn.classList.add('btn');
         answerBtn.setAttribute('value', questions[index].answers[i]);
-        //append the answer button with the contect and class which was added above into the list element
         answerBtn.addEventListener("click", function() {
             checkAnswer();
             console.log(answerBtn);
          });  
             li.appendChild(answerBtn);
             //append the list element to the answer ul created on the html
-            
             answerElement.appendChild(li);   
          
             
         }      
 }; //check if user clicks wrong answer
 function checkAnswer(){
-    if (this.value !== questions[index].correctAnswer){
+    if (this.value!== questions[index].correctAnswer){
         secondsLeft = secondsLeft - 30; //lose 30 seconds
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
@@ -91,11 +85,18 @@ function checkAnswer(){
         points = points + 10; // gain 10 points
         console.log("correct answer plus 10 points");
     }
-//move to next question index++;
-//check if run out of quesitons
+        
     
-    console.log("checkAnswer")
 }
+
+//move to next question index++; getQuestion++
+//check if run out of quesitons 
+/*if (index === questions.length){
+    endQuiz // store name and score
+} else {
+    getQuestions();
+}
+}*/
 
 //timer function is working
 function setTime() {
