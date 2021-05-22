@@ -8,7 +8,7 @@ var points= 0;
 var secondsLeft = 120;
 var highScore;
 var index = 0;
-var answerBtn;
+
 
 /*
 var playerName= localStorage.getItem("playerName");
@@ -73,7 +73,7 @@ function getQuestion(){
         }      
 }; //check if user clicks wrong answer
 function checkAnswer(){
-    if (this.value!== questions[index].correctAnswer){
+    if (this.value != questions[index].correctAnswer){
         secondsLeft = secondsLeft - 30; //lose 30 seconds
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
