@@ -3,12 +3,19 @@ var startButton = document.querySelector(".startBtn");
 var timerElement = document.querySelector(".timer");
 var answerElement= document.querySelector("#answers");
 var questionEl = document.querySelector('#question');
-//var points = document.querySelector("#saved-score");
+var correctAnswer = true;
+var points= 0;
 var secondsLeft = 120;
-var nameHigh;
-var scoreHigh;
+var highScore;
 var index = 0;
+var answerBtn;
 
+/*
+var playerName= localStorage.getItem("playerName");
+var highScore= localStorage.getItem("highScore");
+
+
+playerName.textContent = "player-name";*/
 
 var questions = [
     {
@@ -32,17 +39,18 @@ var questions = [
 
 //listener when clicking "play"
 startButton.addEventListener("click", function() {
-    var playerName = prompt("Please Enter Player Name", " ");
+    /*var playerName = prompt("Please Enter Player Name", " ");
     if (playerName != null) {
-        document.getElementById("saved-name").innerhtml = " ";//save localStorage
-    }
+        document.setItem("player-name", playerName);
+    }*/
     secondsLeft--;
-    getRandomQuestion();
+    getFirstQuestion();
     setTime();
     startGame();
 });
 
-function getRandomQuestion(){
+//question functions
+function getFirstQuestion(){
     questionEl.textContent = questions[index].question
 
     for( var i = 0; i < questions[index].answers.length; i++) {
@@ -50,7 +58,7 @@ function getRandomQuestion(){
 
         //Create a list & a button element 
         var li = document.createElement('li');
-        var answerBtn = document.createElement('button')
+        var answerBtn = document.createElement('button');
 
         //display the answer content onto the button
         answerBtn.textContent = questions[index].answers[i];
@@ -59,12 +67,26 @@ function getRandomQuestion(){
         //append the answer button with the contect and class which was added above into the list element
             li.appendChild(answerBtn);
             //append the list element to the answer ul created on the html
-            answerElement.appendChild(li)   
-        } //while loop waiting for answer to move to next question
-}    
+            answerElement.appendChild(li);   
+        } 
+}; 
+/*
+answerbtn.addEventListener("click", function() {
+    getSecondQuestion();
+})
 
+function getSecondQuestion(){
+    questionEl.textContent = questions[1].question
+    for( var i = 1; i < questions[1].answers.length; i++) {
+        var li = document.createElement('li');
+        var answerBtn2 = document.createElement('button');
+        answerBtn2.textContent = questions[1].answers[i];
+        answerBtn2.classList.add('btn')
+            li.appendChild(answerBtn2);
+            answerElement.appendChild(li);
 
-    
+    }
+}*/
 
 //timer function is working
 function setTime() {
@@ -73,21 +95,16 @@ function setTime() {
         timerElement.textContent = "Timer: " + secondsLeft;
         if(secondsLeft=== 0) {
             clearInterval(timerInterval);
-            sendMessage();
+            //sendMessage();
         }
     }, 1000);
-}
+} 
 
 //startGame function is called when the start button is clicked
 function startGame(){
-    isWin = false;
     secondsLeft = 120;
     startButton.disabled = true; //prevents start button from being pressed while playing
-    
 }
-
-//attach event listener to startGame button to function on click
-startButton.addEventListener("click", startGame);
 
 //what is initialized upon page load
 /*function init() {
@@ -99,7 +116,8 @@ startButton.addEventListener("click", startGame);
 init();*/
 
 //reset button plus reset function
-var resetButton = document.querySelector(".resetBtn");
+/*var resetButton = document.querySelector(".resetBtn");
+var nameHigh = localStorage.getItem("");
 
 function resetGame(){
     nameHigh = '';
@@ -110,4 +128,4 @@ function resetGame(){
 }
 
 //listener for reset button
-resetButton.addEventListener("click", resetGame);
+resetButton.addEventListener("click", resetGame);*/
