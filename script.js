@@ -44,13 +44,13 @@ startButton.addEventListener("click", function() {
         document.setItem("player-name", playerName);
     }*/
     secondsLeft--;
-    getFirstQuestion();
+    getQuestion();
     setTime();
     startGame();
 });
 
 //question functions
-function getFirstQuestion(){
+function getQuestion(){
     questionEl.textContent = questions[index].question
 
     for( var i = 0; i < questions[index].answers.length; i++) {
@@ -65,14 +65,21 @@ function getFirstQuestion(){
         //add class to the answer button
         answerBtn.classList.add('btn')
         //append the answer button with the contect and class which was added above into the list element
+        answerbtn.addEventListener("click", function() {
+            checkAnswer();
+            console.log(answerBtn);
+         });  
             li.appendChild(answerBtn);
             //append the list element to the answer ul created on the html
+            
             answerElement.appendChild(li);   
-        } 
+         
+            
+        }      
 }; 
+
 /*
-answerbtn.addEventListener("click", function() {
-    getSecondQuestion();
+
 })
 
 function getSecondQuestion(){
