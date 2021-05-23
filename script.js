@@ -5,18 +5,12 @@ var timerElement = document.querySelector(".timer");
 var answerElement= document.querySelector("#answers");
 var questionEl = document.querySelector('#question');
 var correctAnswer = true;
-var points= 0;
+var points = 0;
 var secondsLeft = 120;
 var highScore;
 var index = 0;
 
-
-/*
-var playerName= localStorage.getItem("playerName");
-var highScore= localStorage.getItem("highScore");
-
-
-playerName.textContent = "player-name";*/
+var point = localStorage.getItem("points");
 
 var questions = [
     {
@@ -64,15 +58,14 @@ function getQuestion(){
         answerBtn.onclick = checkAnswer;
         answerElement.appendChild(answerBtn);   
         }   
-        
-        
-        
+    
 }; //check if user clicks wrong answer
 function checkAnswer(){
     if (this.textContent != questions[index].correctAnswer){
         secondsLeft = secondsLeft - 30; //lose 30 seconds
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
+        localStorage.setItem("point", point);
         console.log("incorrect answer minus 10 points");
         //answerBtn.setAttribute('display', 'none');
         index++;
@@ -82,6 +75,7 @@ function checkAnswer(){
         secondsLeft = secondsLeft + 30; //gain 30 seconds 
         console.log("correct answer plus 30 seconds");
         points = points + 10; // gain 10 points
+        localStorage.setItem("point", point);
         console.log("correct answer plus 10 points");
         //answerBtn.setAttribute('display', 'none');
         index++;
