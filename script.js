@@ -67,11 +67,8 @@ function getQuestion(){
         answerBtn.classList.add('btn');
         answerBtn.setAttribute('id', 'btn');
         answerBtn.setAttribute('value', questions[index].answers[i]);
-        answerBtn.addEventListener("click", function() {
-            checkAnswer();
-            console.log(this.textContent);
-         });  
-            answerElement.appendChild(answerBtn);   
+        answerBtn.onclick = checkAnswer;
+        answerElement.appendChild(answerBtn);   
          
             
         }      
