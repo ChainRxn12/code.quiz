@@ -50,30 +50,34 @@ startButton.addEventListener("click", function() {
 });
 
 //question functions
+// var testButton = document.getElementById('thisid');
+// testButton.addEventListener("click", function() {
+//     console.log(testButton.textContent);
+//  }); 
+
+
 function getQuestion(){
     questionEl.textContent = questions[index].question
 
     for( var i = 0; i < questions[index].answers.length; i++) {
         //Each time the loop is run, the below codes are being executed
         //Create a list & a button element 
-        var li = document.createElement('li');
         var answerBtn = document.createElement('button');
         answerBtn.textContent = questions[index].answers[i];
         answerBtn.classList.add('btn');
+        answerBtn.setAttribute('id', 'btn');
         answerBtn.setAttribute('value', questions[index].answers[i]);
         answerBtn.addEventListener("click", function() {
             checkAnswer();
-            console.log(answerBtn);
+            console.log(this.textContent);
          });  
-            li.appendChild(answerBtn);
-            //append the list element to the answer ul created on the html
-            answerElement.appendChild(li);   
+            answerElement.appendChild(answerBtn);   
          
             
         }      
 }; //check if user clicks wrong answer
 function checkAnswer(){
-    if (this.value != questions[index].correctAnswer){
+    if (this.textContent != questions[index].correctAnswer){
         secondsLeft = secondsLeft - 30; //lose 30 seconds
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
