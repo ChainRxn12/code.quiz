@@ -1,6 +1,6 @@
 //assign variables
 var startButton = document.querySelector(".startBtn");
-
+var endQuiz;
 var timerElement = document.querySelector(".timer");
 var answerElement= document.querySelector("#answers");
 var questionEl = document.querySelector('#question');
@@ -50,16 +50,9 @@ startButton.addEventListener("click", function() {
     startGame();
 });
 
-//question functions
-// var testButton = document.getElementById('thisid');
-// testButton.addEventListener("click", function() {
-//     console.log(testButton.textContent);
-//  }); 
-
-
 function getQuestion(){
     questionEl.textContent = questions[index].question
-
+    answerElement.innerHTML = "";
     for( var i = 0; i < questions[index].answers.length; i++) {
         //Each time the loop is run, the below codes are being executed
         //Create a list & a button element 
@@ -81,6 +74,7 @@ function checkAnswer(){
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
         console.log("incorrect answer minus 10 points");
+        //answerBtn.setAttribute('display', 'none');
         index++;
         getQuestion();
     } else {
@@ -89,29 +83,11 @@ function checkAnswer(){
         console.log("correct answer plus 30 seconds");
         points = points + 10; // gain 10 points
         console.log("correct answer plus 10 points");
+        //answerBtn.setAttribute('display', 'none');
         index++;
         getQuestion();
     }   
 } 
-//hide questions
-function resetQuestion(){
-    nextButton.classList.add('hide');
-    while (answerElement.firstChild) {
-        answerElement.removeChild(answerElement.firstChild);
-    }
-}
-
-
-
-
-//move to next question index++; getQuestion++
-//check if run out of quesitons 
-/*if (index === questions.length){
-    endQuiz // store name and score
-} else {
-    getQuestions();
-}
-}*/
 
 //timer function is working
 function setTime() {
