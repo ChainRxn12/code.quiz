@@ -10,7 +10,8 @@ var secondsLeft = 120;
 var highScore;
 var index = 0;
 
-var point = localStorage.getItem("points");
+//var points = localStorage.getItem("points");
+//document.getElementById('score').innerHTML = ("", points);
 
 var questions = [
     {
@@ -65,7 +66,7 @@ function checkAnswer(){
         secondsLeft = secondsLeft - 30; //lose 30 seconds
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
-        localStorage.setItem("point", point);
+        //localStorage.setItem("points", points);
         console.log("incorrect answer minus 10 points");
         //answerBtn.setAttribute('display', 'none');
         index++;
@@ -75,7 +76,7 @@ function checkAnswer(){
         secondsLeft = secondsLeft + 30; //gain 30 seconds 
         console.log("correct answer plus 30 seconds");
         points = points + 10; // gain 10 points
-        localStorage.setItem("point", point);
+        //localStorage.setItem("points", points);
         console.log("correct answer plus 10 points");
         //answerBtn.setAttribute('display', 'none');
         index++;
