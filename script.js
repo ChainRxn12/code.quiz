@@ -1,5 +1,6 @@
 //assign variables
 var startButton = document.querySelector(".startBtn");
+
 var timerElement = document.querySelector(".timer");
 var answerElement= document.querySelector("#answers");
 var questionEl = document.querySelector('#question');
@@ -24,7 +25,7 @@ var questions = [
     correctAnswer: 'Paragraph Tag'
 },{
     question: "WHAT DOES 'CSS' STAND FOR?",
-    answers: ['Cascading Style Sheet', 'Cosmic Start Ship', 'Colorado Six Shooters', 'Cascade Starting Sheet'],
+    answers: ['Cascading Style Sheet', 'Cosmic Start Ship', 'Cobalt Six Shot', 'Cascade Starting Sheet'],
     correctAnswer: 'Cascading Style Sheet'
 },{
     question: "WHICH OF THE FOLLOW IS NOT A PROGRAMMING LANGUAGE?",
@@ -69,9 +70,10 @@ function getQuestion(){
         answerBtn.setAttribute('value', questions[index].answers[i]);
         answerBtn.onclick = checkAnswer;
         answerElement.appendChild(answerBtn);   
-         
-            
-        }      
+        }   
+        
+        
+        
 }; //check if user clicks wrong answer
 function checkAnswer(){
     if (this.textContent != questions[index].correctAnswer){
@@ -79,16 +81,28 @@ function checkAnswer(){
         console.log("incorrect answer minus 30 seconds");
         points = points - 10; //lose 10 points
         console.log("incorrect answer minus 10 points");
+        index++;
+        getQuestion();
     } else {
         // if choose correct answer 
         secondsLeft = secondsLeft + 30; //gain 30 seconds 
         console.log("correct answer plus 30 seconds");
         points = points + 10; // gain 10 points
         console.log("correct answer plus 10 points");
+        index++;
+        getQuestion();
+    }   
+} 
+//hide questions
+function resetQuestion(){
+    nextButton.classList.add('hide');
+    while (answerElement.firstChild) {
+        answerElement.removeChild(answerElement.firstChild);
     }
-        
-    
 }
+
+
+
 
 //move to next question index++; getQuestion++
 //check if run out of quesitons 
